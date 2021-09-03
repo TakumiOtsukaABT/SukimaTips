@@ -12,7 +12,10 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
     // レスポンスが返ってきた時の処理
         var data = this.response;
         var obj = JSON.parse(data);
-        console.log(obj.value);
+        // console.log(obj.value);
+
+        var text = document.getElementById("id")
+        text.value = obj.value
 }
 
 // リクエストをURLに送信
