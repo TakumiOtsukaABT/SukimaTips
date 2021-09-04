@@ -11,25 +11,41 @@ const end_pass = 'STOP';
 /////////////////////////////////////////////////////
 chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
     if (changeInfo.status == 'loading' && tab.active) {
+      console.log("バックグラウンド");
+      
+
       let handleIndex = 0;
+      popUp_function();
+
       while (handleIndex < buttonLength) {
+        console.log("バックグラウンド2");
         $button[handleIndex].addEventListener('click', (e) => {
           if(pass === e.target.textContent){
               // window.alert('tips表示！！');
+              console.log("バックグラウンド3");
+
               state = 1 ;
               popUp_function();
             }
             else {//強制終了
-      
+              console.log("バックグラウンド4");
                     window.stop();
             }
         });
         handleIndex++;
       }
-      window.open( "../ModeLess/modeLess.html", "aaaa",'width=500,height=300,toolbar=yes,menubar=yes,scrollbars=yes');
+      // window.open( "../ModeLess/modeLess.html", "aaaa",'width=500,height=300,toolbar=yes,menubar=yes,scrollbars=yes');
     }
 })
 
+
+//showSweetAlertに渡している
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    let message = localStorage.getItem('showNext');
+    if (request.greeting == "hello")
+      sendResponse({farewell: message});
+  });
 
 
 //   let handleIndex = 0;
@@ -73,6 +89,10 @@ const popUp_function = () =>{
         // if(state===1){//移動したためコメントアウト
         //     alert(result[cont][1]);      
         // }
+        console.log("バックグラウンドpp");
+        console.log(result[2][1]);
+        localStorage.setItem('showNext',result[2][1]); 
+        console.log(localStorage.getItem('showNext'));
         if(state===1){
           var y = Math.floor( Math.random() * 6 ) ;
           var x = Math.floor( Math.random() * 5 ) ;
@@ -80,8 +100,8 @@ const popUp_function = () =>{
           // alert(x);
             // alert(result[x][y]); 
             let message = result[cont][1];
-            console.log("バックグラウンド");
-            console.log(message);
+            console.log("バックグラウンドp");
+            // console.log(message);
             localStorage.setItem('showNext',message); 
         }
     }

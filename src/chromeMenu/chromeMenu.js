@@ -1,8 +1,8 @@
-// let testButton = document.getElementById("test");
+// let testButton = document.getElementById("clickk");
 // testButton.addEventListener('click',save);
 
 // function save() {
-//     window.open( "../ModeLess/modeLess.html", "aaaa",'width=500,height=300');
+//     Swal.fire('Any fool can use a computer')
 // }
 // $("#open-sample-dialog").on("click", function(){
 //   $("#sample-dialog").dialog();
