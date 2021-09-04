@@ -3,17 +3,22 @@ var result = []; // 最終的な二次元配列を入れるための配列（外
 let cont = 0;
         cont++;
 
+
+/////////////////////////////////////////////////////
+///////↓↓↓URLの変更を検知後処理をする↓↓↓///////
+/////////////////////////////////////////////////////
 chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
     if (changeInfo.status == 'loading' && tab.active) {
       window.open( "../ModeLess/modeLess.html", "aaaa",'width=500,height=300,toolbar=yes,menubar=yes,scrollbars=yes');
-  
     }
 })
 
 
-let state = 0 ;
 
-  const $button=document.getElementsByTagName('button');
+
+
+
+  const $button=document.getElementsByTagName('a');
   const buttonLength = $button.length;
   const pass ='START';
 
@@ -32,13 +37,14 @@ while (handleIndex < buttonLength) {
   handleIndex++;
 }
 
+
+
 const popUp_function = () =>{
     //CSVファイルを読み込む関数getCSV()の定義
     function getCSV(){
         var req = new XMLHttpRequest(); // HTTPでファイルを読み込むためのXMLHttpRrequestオブジェクトを生成
         req.open("get", "../tips.csv", true); // アクセスするファイルを指定
         req.send(null); // HTTPリクエストの発行
-
         // レスポンスが返ってきたらconvertCSVtoArray()を呼ぶ	
         req.onload = function(){
 	        convertCSVtoArray(req.responseText); // 渡されるのは読み込んだCSVデータ
@@ -66,62 +72,14 @@ const popUp_function = () =>{
     }
 getCSV(); //最初に実行される
 }
+
 ///////////////////////////////////////
 ///////↑↑↑配列に格納済み↑↑↑///////
 ///////////////////////////////////////
 
-const $button=document.getElementsByTagName('a');
-const buttonLength = $button.length;
-const pass ='START';
-let handleIndex = 0;
-
-while (handleIndex < buttonLength) {
-  $button[handleIndex].addEventListener('click', (e) => {
-    if(pass === e.target.textContent){
-        state = 1 ;//STARTの状態
-        popUp_function();
-      }
-  });
-  handleIndex++;
-}
-///////////////////////////////////////////
-///////↑↑↑STARTボタンの検知↑↑↑///////
-///////////////////////////////////////////
-
-let count = 0;
-const output_tips = (count) =>{
-  if(state===1){
-    alert(result[count][1]);      
-  }
-}
-
-/////////////////////////////////////////////////////
-///////↓↓↓URLの変更を検知後処理をする↓↓↓///////
-/////////////////////////////////////////////////////
-chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
-    if (changeInfo.status == 'loading' && tab.active) {
-
-//tipsの出力
-output_tips(count);
-count++;
-      // // XMLHttpRequestオブジェクトの作成
-      //   var request = new XMLHttpRequest();
-
-      // // URLを開く
-      //   request.open('GET', "https://api.chucknorris.io/jokes/random", true);
-
-      // // レスポンスが返ってきた時の処理を記述 
-      //   request.onload = function () {
-      // // レスポンスが返ってきた時の処理
-      //   var data = this.response;
-      //   var obj = JSON.parse(data);
-      //   }
-
-      // // リクエストをURLに送信
-      //   request.send();
-  
-    }
-    console.log(tabId);
-    console.log(changeInfo);
-    console.log(tab);
-})
+// let count = 0;
+// const output_tips = (count) =>{
+//   if(state===1){
+//     alert(result[count][1]);      
+//   }
+// }
