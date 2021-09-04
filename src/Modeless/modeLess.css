@@ -1,0 +1,17 @@
+.tips{
+    font-size: 16px;
+    color: #fd9535;
+    font-weight: bold;
+}
+
+.resizeimage img{
+    width: 100%;
+}
+
+.logo{
+    max-width: 500px;
+    height: auto;
+    position: relative;
+    top:0;
+    left:0;
+}
