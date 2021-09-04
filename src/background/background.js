@@ -9,14 +9,12 @@ let cont = 0;
 /////////////////////////////////////////////////////
 chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
     if (changeInfo.status == 'loading' && tab.active) {
-      window.open( "../ModeLess/modeLess.html", "aaaa",'width=500,height=300,toolbar=yes,menubar=yes,scrollbars=yes');
+      $(function(){
+        $("#dialog").load("../Modeless/modeLess.html");
+      });
+      // window.open( "../ModeLess/modeLess.html", "aaaa",'width=500,height=300,toolbar=yes,menubar=yes,scrollbars=yes');
     }
 })
-
-
-
-
-
 
   const $button=document.getElementsByTagName('a');
   const buttonLength = $button.length;
@@ -36,8 +34,6 @@ while (handleIndex < buttonLength) {
   });
   handleIndex++;
 }
-
-
 
 const popUp_function = () =>{
     //CSVファイルを読み込む関数getCSV()の定義
@@ -63,7 +59,7 @@ const popUp_function = () =>{
         //     alert(result[cont][1]);      
         // }
         if(state===1){
-            alert(result[cont][1]); 
+            // alert(result[cont][1]); 
             let message = result[cont][1];
             console.log("バックグラウンド");
             console.log(message);
