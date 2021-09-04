@@ -13,10 +13,20 @@ function getDialog(){
 /////////////////////////////////////////////////////
 ///////↓↓↓URLの変更を検知後処理をする↓↓↓///////
 /////////////////////////////////////////////////////
+<<<<<<< HEAD
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   if (changeInfo.status == 'loading' && tab.active) {
     window.open( "../ModeLess/modeLess.html", "aaaa",'width=500,height=300,toolbar=yes,menubar=yes,scrollbars=yes');
   }
+=======
+chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
+    if (changeInfo.status == 'loading' && tab.active) {
+      // $(function(){
+      //   $("#dialog").load("../Modeless/modeLess.html");
+      // });
+      window.open( "../ModeLess/modeLess.html", "aaaa",'width=500,height=300,toolbar=yes,menubar=yes,scrollbars=yes');
+    }
+>>>>>>> cef70ea7dc4890414a23d1b3cf848521fbdb15c5
 })
 
 const $button = document.getElementsByTagName('a');
