@@ -3,17 +3,19 @@ var result = []; // 最終的な二次元配列を入れるための配列（外
 let cont = 0;
 cont++;
 
+function getDialog(){
+  let element = document.querySelector('sample');
+  console.log(element.log);
+  var dialog = document.getElementByClassName('dialog');
+  console.log(dialog);
+}
+
 /////////////////////////////////////////////////////
 ///////↓↓↓URLの変更を検知後処理をする↓↓↓///////
 /////////////////////////////////////////////////////
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   if (changeInfo.status == 'loading' && tab.active) {
-    window.addEventListener('DOMContentLoaded', function(){
-      $('#dialog').dialog({
-        modal: true
-      });
-    });
-    // window.open( "../ModeLess/modeLess.html", "aaaa",'width=500,height=300,toolbar=yes,menubar=yes,scrollbars=yes');
+    window.open( "../ModeLess/modeLess.html", "aaaa",'width=500,height=300,toolbar=yes,menubar=yes,scrollbars=yes');
   }
 })
 
