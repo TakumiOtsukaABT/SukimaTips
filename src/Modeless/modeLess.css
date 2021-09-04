@@ -3,3 +3,8 @@
     color: #fd9535;
     font-weight: bold;
 }
+
+.logo{
+    max-width: 300px;
+    height: auto;
+}
