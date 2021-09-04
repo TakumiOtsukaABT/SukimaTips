@@ -3,3 +3,4 @@ var text = document.getElementById("tipsText");
 console.log("モードレスやで");
 console.log(receivedMessage);
 text.innerHTML = "<p>"+receivedMessage+"</p>";
+window.open()
