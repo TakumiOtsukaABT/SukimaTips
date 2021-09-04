@@ -10,7 +10,7 @@ td.icon img {
 
 .btn-square-pop {
     position: relative;
-    left:80px;
+    left:60px;
     display: inline-block;
     padding: 0.25em 0.5em;
     text-decoration: none;
@@ -26,9 +26,26 @@ td.icon img {
     border-bottom: solid 2px #fd9535;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
   }
-  /* #sample { 
-    background: -moz-linear-gradient(top, #FFF, #78f6ff);
-    background: -webkit-linear-gradient(top, #FFF, #78f6ff);
-    background: linear-gradient(to bottom, #FFF, #78f6ff);
-    /*グラデーション以外は省略*/
-  /* } */
+  .btn-square-pop2 {
+    position: relative;
+    left:60px;
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #5335fd;
+    background: #FFF;/*背景色*/
+    border-bottom: solid 2px #FFF;/*少し濃い目の色に*/
+    border-radius: 4px;/*角の丸み*/
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+    font-weight: bold;
+  }
+  
+  .btn-square-pop2:active {
+    border-bottom: solid 2px #fd9535;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+  }
+    #sample { 
+    background: -moz-linear-gradient(left, #FFF, #9df4fa);
+    background: -webkit-linear-gradient(left, #FFF, #9df4fa);
+    background: linear-gradient(to right #FFF, #9df4fa);
+    }
