@@ -1,41 +1,52 @@
 let state = 0 ;//初期状態（off）
 var result = []; // 最終的な二次元配列を入れるための配列（外部関数へ移動しました）
-let cont = 0;
-        cont++;
+const end_pass = 'STOP';
 
+  const $button=document.getElementsByTagName('a');
+  const buttonLength = $button.length;
+  const pass ='START';
 
 /////////////////////////////////////////////////////
 ///////↓↓↓URLの変更を検知後処理をする↓↓↓///////
 /////////////////////////////////////////////////////
 chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
     if (changeInfo.status == 'loading' && tab.active) {
+      let handleIndex = 0;
+      while (handleIndex < buttonLength) {
+        $button[handleIndex].addEventListener('click', (e) => {
+          if(pass === e.target.textContent){
+              // window.alert('tips表示！！');
+              state = 1 ;
+              popUp_function();
+            }
+            else {//強制終了
+      
+                    window.stop();
+            }
+        });
+        handleIndex++;
+      }
       window.open( "../ModeLess/modeLess.html", "aaaa",'width=500,height=300,toolbar=yes,menubar=yes,scrollbars=yes');
     }
 })
 
 
 
+//   let handleIndex = 0;
+// while (handleIndex < buttonLength) {
+//   $button[handleIndex].addEventListener('click', (e) => {
+//     if(pass === e.target.textContent){
+//         // window.alert('tips表示！！');
+//         state = 1 ;
+//         popUp_function();
+//       }
+//       else {//強制終了
 
-
-
-  const $button=document.getElementsByTagName('a');
-  const buttonLength = $button.length;
-  const pass ='START';
-
-  let handleIndex = 0;
-while (handleIndex < buttonLength) {
-  $button[handleIndex].addEventListener('click', (e) => {
-    if(pass === e.target.textContent){
-        // window.alert('tips表示！！');
-        state = 1 ;
-        popUp_function();
-      }
-      else {
-        // window.alert('tips表示しない！！');
-      }
-  });
-  handleIndex++;
-}
+//               window.stop();
+//       }
+//   });
+//   handleIndex++;
+// }
 
 
 
@@ -63,7 +74,11 @@ const popUp_function = () =>{
         //     alert(result[cont][1]);      
         // }
         if(state===1){
-            alert(result[cont][1]); 
+          var y = Math.floor( Math.random() * 6 ) ;
+          var x = Math.floor( Math.random() * 5 ) ;
+          // alert(y);
+          // alert(x);
+            // alert(result[x][y]); 
             let message = result[cont][1];
             console.log("バックグラウンド");
             console.log(message);
