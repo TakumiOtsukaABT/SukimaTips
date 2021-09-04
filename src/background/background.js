@@ -3,7 +3,7 @@ let cont = 0;
 
 chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
     if (changeInfo.status == 'loading' && tab.active) {
-      window.open( "../ModeLess/modeLess.html", "aaaa",'width=500,height=300,toolbar=yes,menubar=yes,scrollbars=yes');
+      window.open( "../ModeLess/modeLess.html", "aaaa",'width=500,height=300');
   
     }
 })
