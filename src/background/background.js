@@ -13,6 +13,7 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
         var data = this.response;
         var obj = JSON.parse(data);
 
+        console.log(obj.value);
     }
 
 // リクエストをURLに送信
@@ -23,23 +24,3 @@ request.send();
     console.log(changeInfo);
     console.log(tab);
   })
-
-  const $button=document.getElementsByTagName('button');
-  const buttonLength = $button.length;
-  const pass ='on';
-
-
-  let handleIndex = 0;
-while (handleIndex < buttonLength) {
-  $button[handleIndex].addEventListener('click', (e) => {
-    if(pass === e.target.textContent){
-        window.alert('tips表示！！');
-      }
-      else{
-        window.alert('tips表示しない！！');
-      }
-  });
-  handleIndex++;
-}
-
-  
