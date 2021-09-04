@@ -13,7 +13,7 @@ let state = 0 ;
 
   const $button=document.getElementsByTagName('button');
   const buttonLength = $button.length;
-  const pass ='on';
+  const pass ='START';
 
   let handleIndex = 0;
 while (handleIndex < buttonLength) {
@@ -23,7 +23,7 @@ while (handleIndex < buttonLength) {
         state = 1 ;
         popUp_function();
       }
-      else{
+      else {
         // window.alert('tips表示しない！！');
       }
   });
