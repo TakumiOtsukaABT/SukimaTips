@@ -10,43 +10,43 @@ const end_pass = 'STOP';
 ///////↓↓↓URLの変更を検知後処理をする↓↓↓///////
 /////////////////////////////////////////////////////
 chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
-    if (changeInfo.status == 'loading' && tab.active) {
-      let handleIndex = 0;
-      while (handleIndex < buttonLength) {
-        $button[handleIndex].addEventListener('click', (e) => {
-          if(pass === e.target.textContent){
-              // window.alert('tips表示！！');
-              state = 1 ;
-              popUp_function();
-            }
-            else {//強制終了
+    if (changeInfo.status == 'complete' && tab.active) {
+      // let handleIndex = 0;
+      // while (handleIndex < buttonLength) {
+      //   $button[handleIndex].addEventListener('click', (e) => {
+      //     if(pass === e.target.textContent){
+      //         // window.alert('tips表示！！');
+      //         state = 1 ;
+      //         popUp_function();
+      //       }
+      //       else {//強制終了
       
-                    window.stop();
-            }
-        });
-        handleIndex++;
-      }
+      //               window.stop();
+      //       }
+      //   });
+      //   handleIndex++;
+      // }
       window.open( "../ModeLess/modeLess.html", "aaaa",'width=500,height=300,toolbar=yes,menubar=yes,scrollbars=yes');
     }
 })
 
 
 
-//   let handleIndex = 0;
-// while (handleIndex < buttonLength) {
-//   $button[handleIndex].addEventListener('click', (e) => {
-//     if(pass === e.target.textContent){
-//         // window.alert('tips表示！！');
-//         state = 1 ;
-//         popUp_function();
-//       }
-//       else {//強制終了
+  let handleIndex = 0;
+while (handleIndex < buttonLength) {
+  $button[handleIndex].addEventListener('click', (e) => {
+    if(pass === e.target.textContent){
+        // window.alert('tips表示！！');
+        state = 1 ;
+        popUp_function();
+      }
+      else {//強制終了
 
-//               window.stop();
-//       }
-//   });
-//   handleIndex++;
-// }
+              window.stop();
+      }
+  });
+  handleIndex++;
+}
 
 
 
@@ -74,12 +74,12 @@ const popUp_function = () =>{
         //     alert(result[cont][1]);      
         // }
         if(state===1){
-          var y = Math.floor( Math.random() * 6 ) ;
-          var x = Math.floor( Math.random() * 5 ) ;
+          var y = Math.floor( Math.random() * 5 ) ;
+          var x = Math.floor( Math.random() * 4 ) ;
           // alert(y);
           // alert(x);
             // alert(result[x][y]); 
-            let message = result[cont][1];
+            let message = result[x][y];
             console.log("バックグラウンド");
             console.log(message);
             localStorage.setItem('showNext',message); 
@@ -88,13 +88,3 @@ const popUp_function = () =>{
 getCSV(); //最初に実行される
 }
 
-///////////////////////////////////////
-///////↑↑↑配列に格納済み↑↑↑///////
-///////////////////////////////////////
-
-// let count = 0;
-// const output_tips = (count) =>{
-//   if(state===1){
-//     alert(result[count][1]);      
-//   }
-// }
