@@ -4,11 +4,11 @@
   "manifest_version": 2,
   "description": "Sample Chrome Extension",
   "browser_action": {
-    "default_popup": "sample.html"
+    "default_popup": "chromeButtons/sample.html"
   },
   "background": {
     "scripts":[
-      "background.js"
+      "background/background.js"
     ],
     "persistent": false
   }
