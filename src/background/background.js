@@ -1,17 +1,12 @@
 let cont = 0;
-
-
         cont++;
 
-// chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
-//     if (changeInfo.status == 'loading' && tab.active) {
-//       window.open( "../ModeLess/modeLess.html", "aaaa",'width=500,height=300,toolbar=yes,menubar=yes,scrollbars=yes');
+chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
+    if (changeInfo.status == 'loading' && tab.active) {
+      window.open( "../ModeLess/modeLess.html", "aaaa",'width=500,height=300,toolbar=yes,menubar=yes,scrollbars=yes');
   
-//     }
-//     console.log(tabId);
-//     console.log(changeInfo);
-//     console.log(tab);
-// })
+    }
+})
 
 
 let state = 0 ;
@@ -29,7 +24,7 @@ while (handleIndex < buttonLength) {
         popUp_function();
       }
       else{
-        window.alert('tips表示しない！！');
+        // window.alert('tips表示しない！！');
       }
   });
   handleIndex++;
@@ -39,7 +34,7 @@ const popUp_function = () =>{
     //CSVファイルを読み込む関数getCSV()の定義
     function getCSV(){
         var req = new XMLHttpRequest(); // HTTPでファイルを読み込むためのXMLHttpRrequestオブジェクトを生成
-        req.open("get", "tips.csv", true); // アクセスするファイルを指定
+        req.open("get", "../tips.csv", true); // アクセスするファイルを指定
         req.send(null); // HTTPリクエストの発行
 
         // レスポンスが返ってきたらconvertCSVtoArray()を呼ぶ	
@@ -57,7 +52,11 @@ const popUp_function = () =>{
             result[i] = tmp[i].split(',');
         }
         if(state===1){
-            alert(result[cont][1]);      
+            alert(result[cont][1]); 
+            let message = result[cont][1];
+            console.log("バックグラウンド");
+            console.log(message);
+            localStorage.setItem('showNext',message); 
         }
     }
 getCSV(); //最初に実行される
