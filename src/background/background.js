@@ -1,28 +1,3 @@
-// chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
-//     if (changeInfo.status == 'loading' && tab.active) {
-//       // XMLHttpRequestオブジェクトの作成
-//         var request = new XMLHttpRequest();
-
-//       // URLを開く
-//         request.open('GET', "https://api.chucknorris.io/jokes/random", true);
-
-//       // レスポンスが返ってきた時の処理を記述 
-//         request.onload = function () {
-//       // レスポンスが返ってきた時の処理
-//         var data = this.response;
-//         var obj = JSON.parse(data);
-//         }
-
-//       // リクエストをURLに送信
-//         request.send();
-  
-//     }
-//     console.log(tabId);
-//     console.log(changeInfo);
-//     console.log(tab);
-// })
-
-
 let state = 0 ;//初期状態（off）
 var result = []; // 最終的な二次元配列を入れるための配列（外部関数へ移動しました）
 
@@ -54,17 +29,10 @@ const popUp_function = () =>{
 getCSV(); //最初に実行される
 }
 ////////////////////////////////////////
-///////↑↑↑配列に格納済み↑↑↑///////ボタンのところ後で変更するon→start
+///////↑↑↑配列に格納済み↑↑↑///////
 ////////////////////////////////////////
 
-let cont = 0;
-
-/////////////////////////////////////////////////////
-///////↓↓↓URLの変更を検知したら動かす↓↓↓///////
-/////////////////////////////////////////////////////
-cont++;
-
-const $button=document.getElementsByTagName('button');
+const $button=document.getElementsByTagName('a');
 const buttonLength = $button.length;
 const pass ='START';
 let handleIndex = 0;
@@ -78,9 +46,44 @@ while (handleIndex < buttonLength) {
   });
   handleIndex++;
 }
+///////////////////////////////////////////
+///////↑↑↑STARTボタンの検知↑↑↑///////
+///////////////////////////////////////////
 
-
-
-if(state===1){
-  alert(result[cont][1]);      
+let count = 0;
+const output_tips = (count) =>{
+  if(state===1){
+    alert(result[count][1]);      
+  }
 }
+
+/////////////////////////////////////////////////////
+///////↓↓↓URLの変更を検知後処理をする↓↓↓///////
+/////////////////////////////////////////////////////
+chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
+    if (changeInfo.status == 'loading' && tab.active) {
+
+//tipsの出力
+output_tips(count);
+count++;
+      // // XMLHttpRequestオブジェクトの作成
+      //   var request = new XMLHttpRequest();
+
+      // // URLを開く
+      //   request.open('GET', "https://api.chucknorris.io/jokes/random", true);
+
+      // // レスポンスが返ってきた時の処理を記述 
+      //   request.onload = function () {
+      // // レスポンスが返ってきた時の処理
+      //   var data = this.response;
+      //   var obj = JSON.parse(data);
+      //   }
+
+      // // リクエストをURLに送信
+      //   request.send();
+  
+    }
+    console.log(tabId);
+    console.log(changeInfo);
+    console.log(tab);
+})
