@@ -4,7 +4,7 @@
   "manifest_version": 2,
   "description": "Sample Chrome Extension",
   "browser_action": {
-    "default_popup": "chromeButtons/sample.html"
+    "default_popup": "chromeMenu/chromeMenu.html"
   },
   "background": {
     "scripts":[
