@@ -15,8 +15,14 @@
     ],
     "persistent": false
   },
-  "content_security_policy":
-    "script-src 'self' https://code.jquery.com/jquery-3.0.0.min.js; object-src 'self'"
+  "content_scripts": [
+    {
+      "run_at":"document_end",
+      "matches": ["<all_urls>"],
+      "js": ["jquery-3.4.0.min.js","sweetalert2.all.min.js","testgoogle.js"]
+    }
+  ],
+  "content_security_policy":"script-src 'self' https://code.jquery.com/jquery-3.6.0.min.js https://cdn.jsdelivr.net/npm/sweetalert2@11; object-src 'self'"
   
   
 }
