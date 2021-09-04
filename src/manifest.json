@@ -6,6 +6,9 @@
   "browser_action": {
     "default_popup": "chromeMenu/chromeMenu.html"
   },
+  "icons": {
+    "16": "chromeMenu/icon.png"
+  },
   "background": {
     "scripts":[
       "background/background.js"

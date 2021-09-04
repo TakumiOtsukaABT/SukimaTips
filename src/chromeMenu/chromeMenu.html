@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="chromeMenu.css">
     <title>Document</title>
 </head>
 <body>
-    <button type="button" class="btn btn-primary">on</button>
-    <button type="button" class="btn btn-primary">off</button>
-
-    <!-- テスト用 -->
-    <button type="button" class="btn btn-primary" id="test">テスト</button>
-    
-    <!-- テスト用 -->
-
-    <script src="../background/background.js"></script>
-    <script src="chromeMenu.js"></script>
-
+    <div id="sample">
+    <div style="width: 220px;height:150px;">
+        <table>
+            <tr>
+                <td class="logo"><img src="logo.png" ></td>
+            </tr>
+        </table>
+        <a href="#" class="btn-square-pop">START</a>
+        <a href="#" class="btn-square-pop2">STOP</a>
+        <script src="../background/background.js"></script>
+    </div>
+</div>
 </body>
 </html>
