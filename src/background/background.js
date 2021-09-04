@@ -1,5 +1,36 @@
 let state = 0 ;//初期状態（off）
 var result = []; // 最終的な二次元配列を入れるための配列（外部関数へ移動しました）
+let cont = 0;
+        cont++;
+
+chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
+    if (changeInfo.status == 'loading' && tab.active) {
+      window.open( "../ModeLess/modeLess.html", "aaaa",'width=500,height=300,toolbar=yes,menubar=yes,scrollbars=yes');
+  
+    }
+})
+
+
+let state = 0 ;
+
+  const $button=document.getElementsByTagName('button');
+  const buttonLength = $button.length;
+  const pass ='START';
+
+  let handleIndex = 0;
+while (handleIndex < buttonLength) {
+  $button[handleIndex].addEventListener('click', (e) => {
+    if(pass === e.target.textContent){
+        // window.alert('tips表示！！');
+        state = 1 ;
+        popUp_function();
+      }
+      else {
+        // window.alert('tips表示しない！！');
+      }
+  });
+  handleIndex++;
+}
 
 const popUp_function = () =>{
     //CSVファイルを読み込む関数getCSV()の定義
@@ -25,6 +56,13 @@ const popUp_function = () =>{
         // if(state===1){//移動したためコメントアウト
         //     alert(result[cont][1]);      
         // }
+        if(state===1){
+            alert(result[cont][1]); 
+            let message = result[cont][1];
+            console.log("バックグラウンド");
+            console.log(message);
+            localStorage.setItem('showNext',message); 
+        }
     }
 getCSV(); //最初に実行される
 }
