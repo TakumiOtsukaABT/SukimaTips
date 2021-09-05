@@ -9,26 +9,21 @@ const end_pass = 'STOP';
 /////////////////////////////////////////////////////
 ///////↓↓↓URLの変更を検知後処理をする↓↓↓///////
 /////////////////////////////////////////////////////
-chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
+let STATE=0;
+
+  chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
+    if(STATE===0){
     if (changeInfo.status == 'complete' && tab.active) {
-      // let handleIndex = 0;
-      // while (handleIndex < buttonLength) {
-      //   $button[handleIndex].addEventListener('click', (e) => {
-      //     if(pass === e.target.textContent){
-      //         // window.alert('tips表示！！');
-      //         state = 1 ;
-      //         popUp_function();
-      //       }
-      //       else {//強制終了
-      
-      //               window.stop();
-      //       }
-      //   });
-      //   handleIndex++;
-      // }
+      STATE=1;
+      console.log(changeInfo);
+
       window.open( "../ModeLess/modeLess.html", "aaaa",'width=500,height=300,toolbar=yes,menubar=yes,scrollbars=yes');
+
     }
+  }
 })
+
+      console.log(STATE);
 
 
 
