@@ -13,7 +13,7 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
     if (changeInfo.status == 'loading' && tab.active) {
       console.log("バックグラウンド");
       
-
+      popUp_function();
       // window.open( "../ModeLess/modeLess.html", "aaaa",'width=500,height=300,toolbar=yes,menubar=yes,scrollbars=yes');
     }
 })
@@ -73,22 +73,22 @@ const popUp_function = () =>{
             result[i] = tmp[i].split(',');
         }
 
-        if(state===1){
+        // if(state===1){
 
           console.log("バックグラウンドpp");
           console.log(result[2][1]);
           // localStorage.setItem('showNext',result[2][1]); 
           console.log(localStorage.getItem('showNext'));
-          // var y = Math.floor( Math.random() * 5 ) ;
+          var y = Math.floor( Math.random() * 5 ) ;
           var x = Math.floor( Math.random() * 4 ) ;
           // alert(y);
           console.log(x);
             console.log(result[x][y]); 
-            let message = result[x][2];
+            let message = result[x][y];
             console.log("バックグラウンドp");
             // console.log(message);
             localStorage.setItem('showNext',message); 
-        }
+        // }
     }
 getCSV(); //最初に実行される
 }
