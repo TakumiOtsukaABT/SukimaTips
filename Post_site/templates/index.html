@@ -7,27 +7,27 @@
     <title>スキマTips</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-      <h1>Welcome to スキマTips !</h1>
+      <h1 id = "welcome">Welcome to スキマTips !</h1>
       <form action="/result" method="post">
           <input type="hidden" name="comment_box">
-          <label for="comment_">Post</label>
+          <label id ="post" for="comment_" >Post</label>
           <textarea name="comment_data" rows="3" cols="50"></textarea>
           <p></p>
-          <label for="name">Name</label>
+          <label id ="name" for="name">Name</label>
           <input type="text" name="name">
-          <button type="submit">send</button>
+          <button type="submit" id = "send">send</button>
           </form>
-      <h2>List</h2>
       {% block body %}
       <form method="post" action="">
         　<table class="table">
-              <thead class="thead-dark">
+              <thead class="thead" id ="thead-dark">
                   <tr>
-                      <th>Date</th>
-                      <th>Name</th>
+                      <th id ="moji">Date</th>
+                      <th id ="moji">Name</th>
                       <th>Post Contents</th>
                       </tr>
                   </thead>
@@ -39,11 +39,10 @@
                       <td>{{ th.comment }}</td>
                       </tr>
                   {% endfor %}
-                  </tbody>
+                  </tbody> -->
               </table>
           </form>
       {% endblock %}
-     <p></p>
 </body> 
 
 </html>
