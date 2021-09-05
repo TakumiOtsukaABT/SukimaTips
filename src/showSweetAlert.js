@@ -10,12 +10,5 @@ $(function() {
             , showConfirmButton: false
             , timer: 5000           //5秒経過後に閉じる
             });
-        // Swal.fire({
-        //     title: 'Sweet!',
-        //     text: 'Modal with a custom image.',
-        //     imageUrl: 'https://picsum.photos/id/237/200/300',
-        //     imageWidth: 400,
-        //     imageHeight: 80,
-        //   })
       });
 });
