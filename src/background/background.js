@@ -61,19 +61,21 @@ const popUp_function = () =>{
         var tmp = str.split("\n"); // 改行を区切り文字として行を要素とした配列を生成
 
         //各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
-        for(var i=0;i<tmp.length;++i){
+        for(var i=0;i<tmp.length-1;++i){
             result[i] = tmp[i].split(',');
         }
           console.log("バックグラウンドpp");
           console.log(result[2][1]);
           // localStorage.setItem('showNext',result[2][1]); 
           console.log(localStorage.getItem('showNext'));
-          var y = Math.floor( Math.random() * 5 ) ;
-          var x = Math.floor( Math.random() * 4 ) ;
+
+          var y = Math.floor( Math.random() * 2 ) ;
+          y = 0 ;//固定しまーす
+          var x = Math.floor( Math.random() * tmp.length ) ;
           // alert(y);
           console.log(x);
             console.log(result[x][y]); 
-            let message = result[x][y];
+            let message = result[x][y];//x=Random,y=0
             console.log("バックグラウンドp");
             // console.log(message);
             localStorage.setItem('showNext',message); 
