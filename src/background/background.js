@@ -1,4 +1,3 @@
-let state = 0 ;//初期状態（off）
 var result = []; // 最終的な二次元配列を入れるための配列（外部関数へ移動しました）
 const end_pass = 'STOP';
 
@@ -11,30 +10,22 @@ const end_pass = 'STOP';
 /////////////////////////////////////////////////////
 chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
     if (changeInfo.status == 'loading' && tab.active) {
-      console.log("バックグラウンド");
-      
       popUp_function();
-      // window.open( "../ModeLess/modeLess.html", "aaaa",'width=500,height=300,toolbar=yes,menubar=yes,scrollbars=yes');
     }
 })
 
 
 let handleIndex = 0;
-// popUp_function();
 
 while (handleIndex < buttonLength) {
-  console.log("バックグラウンド2");
   $button[handleIndex].addEventListener('click', (e) => {
     if(pass === e.target.textContent){
         // window.alert('tips表示！！');
-        console.log("バックグラウンド3");
-
-        state = 1 ;
+        localStorage.setItem('kidouchuu',true);
         popUp_function();
       }
       else {//強制終了
-        console.log("バックグラウンド4");
-              window.stop();
+        localStorage.setItem('kidouchuu',false);
       }
   });
   handleIndex++;
@@ -45,8 +36,9 @@ while (handleIndex < buttonLength) {
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     let message = localStorage.getItem('showNext');
+    let active = localStorage.getItem('kidouchuu');
     if (request.greeting == "hello")
-      sendResponse({farewell: message});
+      sendResponse({farewell: message, kidou: active});
   });
 
 
@@ -72,9 +64,6 @@ const popUp_function = () =>{
         for(var i=0;i<tmp.length-1;++i){
             result[i] = tmp[i].split(',');
         }
-
-        // if(state===1){
-
           console.log("バックグラウンドpp");
           console.log(result[2][1]);
           // localStorage.setItem('showNext',result[2][1]); 
@@ -89,9 +78,7 @@ const popUp_function = () =>{
             let message = result[x][y];//x=Random,y=0
             console.log("バックグラウンドp");
             // console.log(message);
-            localStorage.setItem('showNext',message);
-
-        // }
+            localStorage.setItem('showNext',message); 
     }
 getCSV(); //最初に実行される
 }
