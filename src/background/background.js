@@ -69,7 +69,7 @@ const popUp_function = () =>{
         var tmp = str.split("\n"); // 改行を区切り文字として行を要素とした配列を生成
 
         //各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
-        for(var i=0;i<tmp.length;++i){
+        for(var i=0;i<tmp.length-1;++i){
             result[i] = tmp[i].split(',');
         }
 
