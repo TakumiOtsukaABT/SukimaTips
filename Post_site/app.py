@@ -75,5 +75,5 @@ if __name__ == "__main__":
     text = Comment.query.all()
     for i in text:
         df.append(str(i.comment))
-    df = pd.DataFrame(df)
-    df.to_csv("src/sample.csv") # サービスのディレクトリに csv 移動
+    df = pd.Series(df)
+    df.to_csv("src/sample.csv", index=False, header=False) # サービスのディレクトリに csv 移動
