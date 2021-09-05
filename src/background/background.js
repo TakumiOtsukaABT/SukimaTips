@@ -79,15 +79,18 @@ const popUp_function = () =>{
           console.log(result[2][1]);
           // localStorage.setItem('showNext',result[2][1]); 
           console.log(localStorage.getItem('showNext'));
-          var y = Math.floor( Math.random() * 5 ) ;
-          var x = Math.floor( Math.random() * 4 ) ;
+
+          var y = Math.floor( Math.random() * 2 ) ;
+          y = 0 ;//固定しまーす
+          var x = Math.floor( Math.random() * tmp.length ) ;
           // alert(y);
           console.log(x);
             console.log(result[x][y]); 
-            let message = result[x][y];
+            let message = result[x][y];//x=Random,y=0
             console.log("バックグラウンドp");
             // console.log(message);
-            localStorage.setItem('showNext',message); 
+            localStorage.setItem('showNext',message);
+
         // }
     }
 getCSV(); //最初に実行される
