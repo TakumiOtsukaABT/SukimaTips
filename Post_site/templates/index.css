@@ -1,0 +1,43 @@
+body { 
+    background-color: #f1ceef;
+ }
+
+#welcome{
+    text-align: center;
+    font-size: 30px;
+    color: #55a7c0;
+    font-weight: bold;
+}
+
+#post {
+    text-align: center;
+    color: #5c59f3;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#name {
+    text-align: center;
+    color: #5c59f3;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#send {
+    position: relative;
+    left:30px;
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: rgb(245, 245, 245);
+    background: #5c59f3;/*背景色*/
+    border-bottom: solid 2px #5c59f3;/*少し濃い目の色に*/
+    border-radius: 4px;/*角の丸み*/
+    /* box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19); */
+    font-weight: bold;
+  }
+
+  #thead-dark{
+    background: #5c59f3;/*背景色*/
+    color: rgb(245, 245, 245);
+  }

@@ -1,4 +1,14 @@
-html, body {
+ #sample { 
+    background: -moz-linear-gradient(top, rgb(175, 128, 252), #9df4fa);
+    background: -webkit-linear-gradient(top, rgb(175, 128, 252), #9df4fa);
+    background: linear-gradient(to bottom rgb(175, 128, 252), #9df4fa);
+ }
+ #co {
+  color: #FFF;
+  font-weight: bold;
+ } 
+
+/* html, body {
     height: 100%;
   }
   body {
@@ -46,4 +56,4 @@ html, body {
        background: hsl( random(360) , 70%, 50%);
     }
    
-  }
+  } */
