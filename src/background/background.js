@@ -25,7 +25,6 @@ while (handleIndex < buttonLength) {
         popUp_function();
       }
       else {//強制終了
-        console.log("set false");
         localStorage.setItem('kidouchuu',false);
       }
   });

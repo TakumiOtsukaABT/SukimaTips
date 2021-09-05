@@ -1,8 +1,10 @@
 $(function() {
     chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
         nemui = response.farewell;
-        var kidou = response.kidou;
-        if(kidou){
+        kidou = response.kidou;
+        console.log(kidou);
+        console.log(typeof(kidou));
+        if(kidou==="true"){
             Swal.fire({
                 iconHtml: '<img src="https://raw.githubusercontent.com/TakumiOtsukaABT/SukimaTips/main/src/artboard.png" width="80" height="80">'
                 , text : nemui
