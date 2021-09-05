@@ -2,7 +2,7 @@ $(function() {
     chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
         nemui = response.farewell;
         Swal.fire({
-            iconHtml: '<img src="https://raw.githubusercontent.com/TakumiOtsukaABT/SukimaTips/main/src/Modeless/logo1-100.jpg" width="100" height="20">'
+            iconHtml: '<img src="https://raw.githubusercontent.com/TakumiOtsukaABT/SukimaTips/main/src/artboard.png" width="80" height="80">'
             , text : nemui
             , type : 'success'
             , toast: true
