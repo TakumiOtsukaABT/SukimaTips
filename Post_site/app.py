@@ -1,10 +1,9 @@
 from flask import Flask, request, render_template
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
+import os
 import pandas as pd
 from sqlalchemy.engine import create_engine
-import sqlalchemy as sa
-import sqlite3
 
 app = Flask(__name__)
 
@@ -15,6 +14,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db_uri = 'sqlite:///test.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 db = SQLAlchemy(app)
+
 
 class Comment(db.Model):
     """[テーブルの定義を行うクラス]
@@ -39,9 +39,7 @@ class Comment(db.Model):
         self.pub_date = pub_date
         self.name = name
         self.comment = comment
-        
-
-
+       
 try:
     db.create_all()
 except Exception as e:
@@ -71,7 +69,11 @@ def result():
 
     return render_template("result.html", comment=comment, name=name, now=date)
 
-
 if __name__ == "__main__":
     app.run(debug=True)
-    
+    df = []
+    text = Comment.query.all()
+    for i in text:
+        df.append(str(i.comment))
+    df = pd.DataFrame(df)
+    df.to_csv("src/sample.csv") # サービスのディレクトリに csv 移動
