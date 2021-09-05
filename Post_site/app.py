@@ -76,4 +76,4 @@ if __name__ == "__main__":
     for i in text:
         df.append(str(i.comment))
     df = pd.Series(df)
-    df.to_csv("src/sample.csv", index=False, header=False) # サービスのディレクトリに csv 移動
+    df.to_csv("src/tips.csv", index=False, header=False) # サービスのディレクトリに csv 移動
